@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descargar Sitio - Mi Sitio Web</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🚀 MiSitio</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Índice</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="inputs.html">Inputs</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="descarga.html" class="active">Descarga</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>⬇️ Archivos del Sitio</h1>
+            <p>Descarga cada archivo individualmente</p>
+        </div>
+
+        <div class="download-container">
+            <div class="download-icon">📁</div>
+            <h2>Archivos del Proyecto</h2>
+            <p>Haz clic en cada archivo para descargarlo:</p>
+            
+            <div class="files-grid">
+                <a href="index.html" download class="file-card">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">index.html</span>
+                    <small>Página principal</small>
+                </a>
+                
+                <a href="tablas.html" download class="file-card">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">tablas.html</span>
+                    <small>Tablas de multiplicar</small>
+                </a>
+                
+                <a href="inputs.html" download class="file-card">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">inputs.html</span>
+                    <small>Formulario dinámico</small>
+                </a>
+                
+                <a href="formulario.html" download class="file-card">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">formulario.html</span>
+                    <small>Google Forms</small>
+                </a>
+                
+                <a href="descarga.html" download class="file-card">
+                    <span class="file-icon">📄</span>
+                    <span class="file-name">descarga.html</span>
+                    <small>Esta página</small>
+                </a>
+                
+                <a href="estilos.css" download class="file-card">
+                    <span class="file-icon">🎨</span>
+                    <span class="file-name">estilos.css</span>
+                    <small>Estilos globales</small>
+                </a>
+                
+                <a href="script.js" download class="file-card">
+                    <span class="file-icon"></span>
+                    <span class="file-name">script.js</span>
+                    <small>JavaScript</small>
+                </a>
+            </div>
+
+            <div style="margin-top: 2rem; padding: 1.5rem; background: #e3f2fd; border-radius: 10px;">
+
+    <footer>
+        <p>Natalia Meza Coavrrubias</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

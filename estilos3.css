@@ -1,0 +1,71 @@
+/*RESULTADO DEL FORMULARIO*/
+.resultado-container {
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    border-left: 5px solid #8effdf;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.resultado-container.mostrar {
+    display: block;
+    animation: slideDown 0.5s ease;
+}
+
+.resultado-container h3 {
+    color: #79edda;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.resultado-item {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+}
+
+.resultado-item:last-child {
+    border-bottom: none;
+}
+
+.resultado-item strong {
+    color: #80dbd8;
+    display: inline-block;
+    min-width: 150px;
+}
+
+/*INPUT COLOR PERSONALIZADO*/
+input[type="color"] {
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    padding: 2px;
+    background: white;
+}
+
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 8px;
+}
+
+/*ANIMACIONES*/
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

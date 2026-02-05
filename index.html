@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice-Mi Sitio Web</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Mi Sitio</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Índice</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="inputs.html">Inputs</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="descarga.html">Descarga</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>📑 Índice del Sitio</h1>
+            <p>Navega por todas nuestras páginas</p>
+        </div>
+
+        <div class="nav-grid">
+            <a href="index.html" class="nav-card">
+                <div class="nav-icon">🏠</div>
+                <h3>Índice</h3>
+                <p>Página principal con navegación a todas las secciones</p>
+            </a>
+
+            <a href="tablas.html" class="nav-card">
+                <div class="nav-icon">🔢</div>
+                <h3>Tablas de Multiplicar</h3>
+                <p>Tablas del 1 al 20 generadas dinámicamente con JavaScript</p>
+            </a>
+
+            <a href="inputs.html" class="nav-card">
+                <div class="nav-icon">📝</div>
+                <h3>Formulario Dinámico</h3>
+                <p>Inputs interactivos que cambian el color de fondo</p>
+            </a>
+
+            <a href="formulario.html" class="nav-card">
+                <div class="nav-icon">📋</div>
+                <h3>Formulario Google</h3>
+                <p>Formulario activo de Google embebido en la página</p>
+            </a>
+
+            <a href="descarga.html" class="nav-card">
+                <div class="nav-icon">⬇️</div>
+                <h3>Descargar Sitio</h3>
+                <p>Descarga todo el contenido del sitio web</p>
+            </a>
+        </div>
+    </main>
+
+    <footer>
+        <p>Natalia Meza Covarrubias</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

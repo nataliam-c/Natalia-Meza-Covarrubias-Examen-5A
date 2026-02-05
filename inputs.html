@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inputs Dinámicos - Mi Sitio Web</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+       
+        .color-preview {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">🚀 MiSitio</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Índice</a></li>
+                <li><a href="tablas.html">Tablas</a></li>
+                <li><a href="inputs.html" class="active">Inputs</a></li>
+                <li><a href="formulario.html">Formulario</a></li>
+                <li><a href="descarga.html">Descarga</a></li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1>📝 Formulario Dinámico</h1>
+            <p>Ingresa datos y cambia el color de fondo</p>
+        </div>
+
+        <div class="form-container">
+            <form id="dynamicForm">
+                <div class="form-group">
+                    <label for="inputTexto">Texto:</label>
+                    <input type="text" id="inputTexto" name="texto" placeholder="Escribe algo..." required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputTelefono">Teléfono:</label>
+                    <input type="tel" id="inputTelefono" name="telefono" placeholder="123-456-7890" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputCorreo">Correo electrónico:</label>
+                    <input type="email" id="inputCorreo" name="correo" placeholder="tu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword">Contraseña:</label>
+                    <input type="password" id="inputPassword" name="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputColor">
+                        Color de fondo:
+                        <span id="colorPreview" class="color-preview" style="background-color: #f4f4f4;"></span>
+                    </label>
+                    <input type="color" id="inputColor" name="color" value="#f4f4f4" required>
+                </div>
+
+                <button type="submit" class="btn" id="submitBtn">
+                    Generar Contenido y Cambiar Color
+                </button>
+            </form>
+
+            <div id="resultado" class="resultado-container">
+                
+        </div>
+   
+
+    <footer>
+        <p>Natalia Meza Covarrubias</p>
+    </footer>
+
+   
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Obtener elementos
+            const form = document.getElementById('dynamicForm');
+            const colorInput = document.getElementById('inputColor');
+            const colorPreview = document.getElementById('colorPreview');
+            const resultado = document.getElementById('resultado');
+            const submitBtn = document.getElementById('submitBtn');
+
+            // Actualizar preview del color en tiempo real
+            colorInput.addEventListener('input', function() {
+                colorPreview.style.backgroundColor = this.value;
+            });
+
+            // Manejar envío del formulario
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // Evitar que se recargue la página
+                
+                // Obtener valores
+                const texto = document.getElementById('inputTexto').value;
+                const telefono = document.getElementById('inputTelefono').value;
+                const correo = document.getElementById('inputCorreo').value;
+                const password = document.getElementById('inputPassword').value;
+                const color = document.getElementById('inputColor').value;
+                
+                // Cambiar color de fondo del body
+                document.body.style.backgroundColor = color;
+                
+                // Crear HTML de resultados
+                resultado.innerHTML = `
+                    <h3>📋 Datos Ingresados:</h3>
+                    <div class="resultado-item">
+                        <strong>📝 Texto:</strong> ${texto}
+                    </div>
+                    <div class="resultado-item">
+                        <strong>📞 Teléfono:</strong> ${telefono}
+                    </div>
+                    <div class="resultado-item">
+                        <strong>✉️ Correo:</strong> ${correo}
+                    </div>
+                    <div class="resultado-item">
+                        <strong>🔒 Contraseña:</strong> ${'*'.repeat(password.length)}
+                    </div>
+                    <div class="resultado-item">
+                        <strong>🎨 Color seleccionado:</strong> 
+                        <span style="display:inline-block; width:20px; height:20px; background:${color}; border:1px solid #000; vertical-align:middle; margin-left:5px;"></span>
+                        ${color}
+                    </div>
+                    <div style="margin-top:1rem; padding:1rem; background:#e3f2fd; border-radius:5px;">
+                        <strong>✅ Acciones realizadas:</strong><br>
+                        • Color de fondo cambiado a ${color}<br>
+                        • Datos mostrados en pantalla<br>
+                        • Información guardada en memoria
+                    </div>
+                `;
+                
+                // Mostrar el contenedor de resultados
+                resultado.classList.add('mostrar');
+                
+                // Efecto visual en el botón
+                submitBtn.innerHTML = '✅ ¡Procesado!';
+                submitBtn.style.background = 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)';
+                
+                setTimeout(() => {
+                    submitBtn.innerHTML = 'Generar Contenido y Cambiar Color';
+                    submitBtn.style.background = '';
+                }, 2000);
+                
+                // Guardar en localStorage
+                const datos = {
+                    texto: texto,
+                    telefono: telefono,
+                    correo: correo,
+                    color: color,
+                    fecha: new Date().toLocaleString()
+                };
+                localStorage.setItem('ultimosDatos', JSON.stringify(datos));
+                
+                console.log('Datos guardados:', datos);
+            });
+
+            // Validación en tiempo real
+            const inputs = form.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('blur', function() {
+                    if (this.checkValidity()) {
+                        this.style.borderColor = '#4caf50';
+                    } else if (this.value !== '') {
+                        this.style.borderColor = '#f44336';
+                    }
+                });
+                
+                input.addEventListener('focus', function() {
+                    this.style.borderColor = '#667eea';
+                });
+            });
+        });
+
+        
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
